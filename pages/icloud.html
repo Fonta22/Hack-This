@@ -1,0 +1,77 @@
+<!-- TRY TO HACK THIS WEBSITE. -->
+<!-- by Fonta22 (t.me/fonta_22) -->
+
+<!-- https://github.com/Fonta22/Hack-This -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        div {
+            font-size: large;
+        }
+        .container {
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+    </style>
+    <div class="container">
+        <br>
+        <div class="log-form">
+            <h2>Activation Lock</h2>
+            <p>This iPhone is linked to an Apple ID.<br>Enter the Apple ID and password that were used to set up this iPhone.</p>
+            <p>s*****@icloud.com</p>
+            <form>
+                <!--p style="display:inline">Apple ID&#8201;</p>
+                <input type="text" title="username" placeholder="Username" id="username" />
+                <br>
+                <p style="display:inline">Password&#8201;</p>
+                <input type="password" title="username" placeholder="Password" id="password" /-->
+                <table>
+                    <tbody>
+                        <tr>
+                            <td style="padding-right: 25px;">Apple ID</td>
+                            <td><input type="text" title="username" placeholder="Apple ID" id="username" /></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-right: 25px;">Password</td>
+                            <td><input type="password" title="username" placeholder="Password" id="password" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <button type="button" class="btn" onclick="validateLogin()">Next ></button>
+                <br>
+                <br>
+                <a class="forgot" href="#">Activation Lock Help</a>
+                <br>
+                <br>
+                <img src="" alt="" id="portal-img">
+            </form>
+        </div>
+    </div>
+    <script>
+        function validateLogin() {
+            const userInp = document.getElementById("username");
+            const passInp = document.getElementById("password");
+
+            if (userInp.value === '' && passInp.value === '') {
+                // Success
+            } else {
+                // Try again
+            }
+        }
+    </script>
+</body>
+</html>
