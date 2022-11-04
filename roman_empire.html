@@ -1,0 +1,86 @@
+<!-- TRY TO HACK THIS WEBSITE TO ENTER THE ROMAN EMPIRE. 🦅🦅 -->
+<!-- by Fonta22 (t.me/fonta_22) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://static.wixstatic.com/media/bcf488_81f87a470f7548bbb3d703168c423b85~mv2.png/v1/fill/w_740,h_1036,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/bcf488_81f87a470f7548bbb3d703168c423b85~mv2.png" type="image/x-icon">
+    <title>Roman Empire</title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        div {
+            font-size: large;
+        }
+        .container {
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+        .unknown { display: none; }
+    </style>
+    <div class="container" id="container">
+        <br>
+        <div class="log-form">
+            <h2 id="title">Login to enter the Roman Empire</h2>
+            <p class="unknown">693C33636165736172646464</p>
+            <p class="unknown">706170614361657361723639</p>
+            <p class="unknown">726F6D613E3E3E7061726973</p>
+            <p class="unknown">656D70657261746F72363636</p>
+            <p class="unknown">363636636165736172393939</p>
+            <p class="unknown">343736642E432E5F3A2F2F2F</p>
+            <p class="unknown">6675636B5F343736642E432E</p>
+            <p class="unknown">707574757342617262617273</p>
+            <form id="login">
+                <input type="text" title="username" placeholder="Username" id="username" />
+                <br>
+                <input type="password" title="username" placeholder="Password" id="password" />
+                <br>
+                <br>
+                <button type="button" class="btn" onclick="validateLogin()">Login</button>
+                <br>
+                <br>
+                <a class="forgot" href="https://translate.google.com/?sl=mn&tl=en&text=%D0%A2%D0%B0%20%D1%85%D1%8D%D0%B2%D0%B8%D0%B9%D0%BD%20%D0%B1%D1%83%D1%81%20%D0%B1%D0%B0%D0%B9%D0%BD%D0%B0&op=translate">Forgot Username?</a>
+                <br>
+                <br>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Flag_of_the_Roman_Empire.svg" alt="Roman Empire" id="roman-empire-flag">
+            </form>
+            <img src="https://cpb-us-e1.wpmucdn.com/sites.psu.edu/dist/c/10644/files/2014/04/Roman_Empire_Trajan_117AD.png" alt="Map" style="display: none;" id="map-img">
+        </div>
+    </div>
+    <script>
+        const index = Math.floor(Math.random() * (7 - 0)) + 0;
+
+        function validateLogin() {
+            const userInp = document.getElementById("username");
+            const passInp = document.getElementById("password");
+
+            const username = document.getElementsByTagName('p')[index];
+
+            if (userInp.value === username.innerText.slice(0, 5) && passInp.value === hex2a(username.innerText)) {
+                alert('Login successful. Ave Caesar 🦅');
+                document.getElementById('login').innerHTML = '';
+                document.getElementById('title').innerText = 'Welcome. 🦅'
+                document.getElementById('map-img').style = 'height: 500px;'
+            } else {
+                alert('Try again.');
+            }
+        }
+
+        function hex2a(hex) {
+            let str = '';
+            for (let i = 0; i < hex.length; i += 2) {
+                let v = parseInt(hex.substr(i, 2), 16);
+                if (v) str += String.fromCharCode(v);
+            }
+            return str;
+        }
+    </script>
+</body>
+</html>

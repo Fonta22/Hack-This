@@ -1,0 +1,75 @@
+<!-- TRY TO HACK THIS WEBSITE TO DOWNLOAD DOOM UNITY. -->
+<!-- by Fonta22 (t.me/fonta_22) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://cdn.frankerfacez.com/emoticon/457362/4" type="image/x-icon">
+    <title>Doom Unity</title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        div {
+            font-size: large;
+        }
+        .container {
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+    </style>
+    <div class="container">
+        <br>
+        <div class="log-form">
+            <h2>Login to download Doom Unity</h2>
+            <form>
+                <input type="text" title="username" placeholder="Username" id="username" />
+                <br>
+                <input type="password" title="username" placeholder="Password" id="password" />
+                <br>
+                <br>
+                <button type="button" class="btn" onclick="validateLogin()">Login</button>
+                <br>
+                <br>
+                <a class="forgot" href="https://en.wikipedia.org/wiki/Idiot">Forgot Username?</a>
+                <br>
+                <br>
+                <img src="https://static.wikia.nocookie.net/doom/images/8/85/Cacodemon_sprite.png/" alt="cacodemon" id="portal-img">
+            </form>
+        </div>
+    </div>
+    <script>
+        function validateLogin() {
+            const downloadURL = 'https://ia801504.us.archive.org/20/items/doom-unity-port/Doom%20Unity%20Port.rar';
+
+            const userInp = document.getElementById("username");
+            const passInp = document.getElementById("password");
+
+            const username = document.getElementById('portal-img').alt;
+            const password = downloadURL.split('/')[5].split('-')[1] + 2019;
+
+            if (userInp.value === username && passInp.value === password) {
+                const download = confirm('RIP & TEAR. Take Doom Unity.');
+                if (download) downloadFile(downloadURL, 'Doom Unity Port.rar');
+            } else {
+                alert('Try again. 💀');
+            }
+        }
+
+        function downloadFile(url, name) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = name;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>
