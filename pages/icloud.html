@@ -1,4 +1,4 @@
-<!-- TRY TO HACK THIS WEBSITE. -->
+<!-- TRY TO HACK THIS ICLOUD ACTIVATION LOCK. -->
 <!-- by Fonta22 (t.me/fonta_22) -->
 
 <!-- https://github.com/Fonta22/Hack-This -->
@@ -9,8 +9,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Document</title>
+    <link rel="shortcut icon" href="https://www.apple.com/favicon.ico" type="image/x-icon">
+    <title>iCloud</title>
 </head>
 <body>
     <style>
@@ -29,10 +29,10 @@
     <div class="container">
         <br>
         <div class="log-form">
-            <h2>Activation Lock</h2>
+            <h2 id="title">Activation Lock</h2>
             <p>This iPhone is linked to an Apple ID.<br>Enter the Apple ID and password that were used to set up this iPhone.</p>
-            <p>s*****@icloud.com</p>
-            <form>
+            <p id="hidden-address"></p>
+            <form id="login">
                 <!--p style="display:inline">Apple ID&#8201;</p>
                 <input type="text" title="username" placeholder="Username" id="username" />
                 <br>
@@ -62,12 +62,37 @@
         </div>
     </div>
     <script>
-        function validateLogin() {
+        const addresses = [
+            {
+                id: 1,
+                name: 'Саша Чернова',
+                username: 'sasha.chernova',
+                domain: 'yandex.ru'
+            },
+            {
+                id: 2,
+                name: 'Χριστίνα Παπαδοπούλου',
+                username: 'xristina.papadopoulou',
+                domain: 'icloud.com'
+            }
+        ];
+
+        const data = addresses[Math.floor(Math.random() * (addresses.length  - 0)) + 0];
+
+        async function validateLogin() {
             const userInp = document.getElementById("username");
             const passInp = document.getElementById("password");
 
-            if (userInp.value === '' && passInp.value === '') {
-                // Success
+            /*const res = await fetch('../api/icloud-addresses.json');
+            const data = await res.json();
+
+            console.log(data);*/
+
+            if (userInp.value === `${data.username}@${data.domain}` && passInp.value === '') {
+                alert('Welcome ' + data.name.split(' ')[0]);
+                document.getElementById('login').innerHTML = '';
+                document.getElementById('title').innerText = 'Welcome ' + data.name
+                //document.getElementById('map-img').style = 'height: 500px;'
             } else {
                 // Try again
             }

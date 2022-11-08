@@ -1,4 +1,14 @@
 [
-    "sarah.cross@icloud.com",
-    "kristiecole@icloud.com"
+    {
+        "id": 1,
+        "name": "Саша Чернова",
+        "username": "sasha.chernova",
+        "domain": "yandex.ru"
+    },
+    {
+        "id": 2,
+        "name": "Χριστίνα Παπαδοπούλου",
+        "username": "xristina.papadopoulou",
+        "domain": "icloud.com"
+    }
 ]
