@@ -3,12 +3,21 @@
         "id": 1,
         "name": "Саша Чернова",
         "username": "sasha.chernova",
-        "domain": "yandex.ru"
+        "domain": "yandex.ru",
+        "key": "4D65647665643A34"
     },
     {
         "id": 2,
         "name": "Χριστίνα Παπαδοπούλου",
         "username": "xristina.papadopoulou",
-        "domain": "icloud.com"
+        "domain": "icloud.com",
+        "key": "7468656C775F6E616E695F706C73"
+    },
+    {
+        "id": 3,
+        "name": "Spider Man",
+        "username": "spiderman",
+        "domain": "icloud.com",
+        "key": "7370696465722D61616161616161"
     }
 ]
