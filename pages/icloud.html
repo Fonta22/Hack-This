@@ -30,14 +30,9 @@
         <br>
         <div class="log-form">
             <h2 id="title">Activation Lock</h2>
-            <p>This iPhone is linked to an Apple ID.<br>Enter the Apple ID and password that were used to set up this iPhone.</p>
-            <p id="hidden-address"></p>
+            <p id="info">This iPhone is linked to an Apple ID.<br>Enter the Apple ID and password that were used to set up this iPhone.</p>
+            <pre id="hidden-address"></pre>
             <form id="login">
-                <!--p style="display:inline">Apple ID&#8201;</p>
-                <input type="text" title="username" placeholder="Username" id="username" />
-                <br>
-                <p style="display:inline">Password&#8201;</p>
-                <input type="password" title="username" placeholder="Password" id="password" /-->
                 <table>
                     <tbody>
                         <tr>
@@ -62,41 +57,48 @@
         </div>
     </div>
     <script>
-        const addresses = [
-            {
-                id: 1,
-                name: 'Саша Чернова',
-                username: 'sasha.chernova',
-                domain: 'yandex.ru'
-            },
-            {
-                id: 2,
-                name: 'Χριστίνα Παπαδοπούλου',
-                username: 'xristina.papadopoulou',
-                domain: 'icloud.com'
-            }
-        ];
+        const globalData = getData();
 
-        const data = addresses[Math.floor(Math.random() * (addresses.length  - 0)) + 0];
+        const index = (max) => Math.floor(Math.random() * (max - 0)) + 0;
+
+        async function getData() {
+            const res = await fetch('https://raw.githubusercontent.com/Fonta22/Hack-This/main/api/icloud-addresses.json');
+            const data = await res.json();
+            return data[index(data.length)];
+        }
+
+        async function setHidden() {
+            const data = await globalData;
+            document.getElementById('hidden-address').innerText = data.username.slice(0, 1) + '*****@' + data.domain;
+        }
 
         async function validateLogin() {
             const userInp = document.getElementById("username");
             const passInp = document.getElementById("password");
 
-            /*const res = await fetch('../api/icloud-addresses.json');
-            const data = await res.json();
+            const data = await globalData;
 
-            console.log(data);*/
-
-            if (userInp.value === `${data.username}@${data.domain}` && passInp.value === '') {
+            if (userInp.value === `${data.username}@${data.domain}` && passInp.value === hex2a(data.key)) {
                 alert('Welcome ' + data.name.split(' ')[0]);
                 document.getElementById('login').innerHTML = '';
-                document.getElementById('title').innerText = 'Welcome ' + data.name
-                //document.getElementById('map-img').style = 'height: 500px;'
+                document.getElementById('title').innerText = 'Welcome ' + data.name;
+                document.getElementById('info').innerHTML = '';
+                document.getElementById('hidden-address').innerHTML = '';
             } else {
-                // Try again
+                alert('Try again.');
             }
         }
+
+        function hex2a(hex) {
+            let str = '';
+            for (let i = 0; i < hex.length; i += 2) {
+                let v = parseInt(hex.substr(i, 2), 16);
+                if (v) str += String.fromCharCode(v);
+            }
+            return str;
+        }
+
+        setHidden();
     </script>
 </body>
 </html>
