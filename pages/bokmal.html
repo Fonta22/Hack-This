@@ -47,12 +47,11 @@
                 <a class="forgot" href="https://no.wikipedia.org/wiki/P%C3%A5ske%C3%B8ya">Forgot Username?</a>
                 <br>
                 <br>
-                <img src="../img/bokmal.png" alt="Bokmål" id="portal-img" width="200" height="auto">
+                <img src="../img/bokmal/bokmal.png" alt="Bokmål" id="portal-img" width="200" height="auto">
             </form>
         </div>
     </div>
     <script>
-
         const globalData = getData();
 
         const index = (max) => Math.floor(Math.random() * (max - 0)) + 0;
@@ -68,30 +67,22 @@
             return pswd.toString(8);
         }
 
-
         async function validateLogin() {
             const userInp = document.getElementById("username");
             const passInp = document.getElementById("password");
 
             const data = await globalData;
 
-            if (userInp.value === `${data.Name}@${data.ProvinceName.replaceAll(" ", "")}${data.ProvinceCode}` && passInp.value === createPswd(data.Latitude, data.Longitude)) {
-                const loginForm = document.getElementById('login-form');
-                const title = document.getElementById("title");
-                title.innerHTML = `Welcome, ${data.Name}@${data.ProvinceName}${data.ProvinceCode}`;
-                loginForm.classList.add('hide');
-                let img1 = document.createElement('img')
-                img1.src = "../img/mapa.png"
-                let img2 = document.createElement('img')
-                img2.src = "../img/success.png"
-                document.getElementById('body').appendChild(img1);
-                document.getElementById('body').appendChild(img2);
-
+            if (userInp.value === `${data.Name.replaceAll(" ", "")}@${data.ProvinceName.replaceAll(" ", "")}${data.ProvinceCode}` && passInp.value === createPswd(data.Latitude, data.Longitude)) {
+                document.getElementById('title').innerHTML = `Welcome, ${data.Name.replaceAll(" ", "")}`;
+                document.getElementById('login-form').innerHTML =
+                    '<img src="../img/bokmal/mapa.png" alt="Bokmål" id="portal-img" width="100%" height="auto">' +
+                    '<br>' +
+                    '<img src="../img/bokmal/success.png" alt="Bokmål" id="portal-img" width="200" height="auto">';
             } else {
-                alert("Així no....")
+                alert("Així no...")
             }
         }
-
     </script>
 </body>
 </html>
